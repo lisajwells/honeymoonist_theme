@@ -1,0 +1,1424 @@
+/* Welcome and glad you are using Reverie.
+ * This is the main stylesheet loaded by default.
+ * Edit the file and have fun.
+ * http://themefortress.com/reverie */
+
+// import normalize, stay at top
+// @import "normalize";
+
+@import url(http://fonts.googleapis.com/css?family=Great+Vibes);
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+// Global Foundation Settings
+@import "settings";
+
+// Tweak the mixin for WordPress, this might create some extra CSS in additional to app.css
+@import "foundation/components/pagination";
+
+// Reverie comes with a standalone Foundation stylesheet already
+// @import "foundation";
+
+// Load some Compass magic, note you will need to install Compass first
+@import "compass/css3/shared";
+@import "compass/css3/border-radius";
+@import "compass/css3/transition";
+@import "compass/css3/columns";
+
+/* Start to customize Reverie */
+
+// add transition effect
+a, a:visited, a:hover, a:visited:hover {
+	@include transition(all 100ms linear);
+}
+
+// add some margin for embeds in post
+figure {
+	margin: 0 auto $panel-margin-bottom;
+}
+
+img.alignright {
+	float: right;
+	margin: 0 0 18px 18px;
+}
+	
+img.alignleft {
+	float: left;
+	margin: 0 18px 18px 0;
+}
+
+img.aligncenter {
+	display: block;
+	margin: 18px auto;
+	}
+
+// Fix gallery images display
+.gallery {
+	dt, dl {
+		display: inline-block;
+	}
+	dl {
+		margin-left: rem-calc(9);
+		margin-right: rem-calc(9);
+	}
+}
+
+// Add HTML5 Caption Class for Images
+figure.figure {
+	margin: 0 auto;
+	//display: table;
+	figcaption {
+		font-size: rem-calc(14);
+		line-height: 1.4;
+		font-style: italic;
+		padding: 8px 10px;
+		color: #999;
+		margin-bottom: $panel-margin-bottom;
+		display: table-caption;
+		caption-side: bottom;
+	}
+}
+
+figure.alignright.figure {
+	float: right;
+	margin: 0 0 18px 18px;
+}
+
+figure.alignleft.figure {
+	float: left;
+	margin: 0 18px 18px 0;
+}
+
+.footer-widget {
+	background-color: #eee;
+}
+
+body > header.contain-to-grid {
+	margin-bottom: rem-calc(32);
+	max-width: 100%;
+	padding-bottom: 0;
+}
+
+.index-card {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: rem-calc(32);
+	margin-bottom: rem-calc(32);
+}
+
+span.author,
+time {
+	font-size: rem-calc(15);
+	color: #999;
+	a {
+		color: #999;
+		font-weight: bold;
+		&:hover, &:focus {
+			color: $body-font-color;
+		}
+	}
+}
+
+// define content padding for later use
+$content-padding: rem-calc(50);
+
+.entry-author {
+	background-color: #fbfbfb;
+	border: none;
+	padding: rem-calc(50) rem-calc(80);
+	margin: rem-calc(50) (-($column-gutter/3));
+	.avatar {
+		margin-right: rem-calc(40);
+		margin-bottom: rem-calc(24);
+	}
+	h4 {
+		a {
+			color: #999;
+			&:hover, &:focus {
+				color: $body-font-color;
+			}
+		}
+	}
+	p {
+		color: #bbb;
+	}
+}
+
+.entry-tags {
+	color: #999;
+	font-size: rem-calc(15);
+	a {
+		color: #999;
+		&:hover, &:focus {
+			color: $body-font-color;
+		}
+	}
+}
+
+
+// add new pagination class for WordPress, Sass is amazingly fast
+.page-numbers {
+	color: #999;
+	@include pagination;
+}
+
+.pagination-centered ul.page-numbers li {
+  float: none;
+  display: inline-block;
+}
+
+.page-numbers li span.current {
+  @include border-radius(3px);
+}
+
+.page-numbers li {
+  margin-left: rem-calc(8);
+}
+
+// customizing pagination for WordPress using Foundation mixins, this is not beautiful I know
+.page-numbers li {
+	span:hover a,
+	span a:focus {
+		background: $pagination-link-active-bg;
+	}
+	span.current {
+		background: $pagination-link-current-background;
+		padding: $pagination-link-pad;
+		color: $pagination-link-current-font-color;
+		font-weight: $pagination-link-current-font-weight;
+		cursor: $pagination-link-current-cursor;
+	}
+}
+
+.avatar {
+	@include border-radius(50%);
+	float: left;
+}
+
+// add some basic comment styles
+ol.commentlist {
+	margin-left: 0;
+	margin-top: 2em;
+	p {
+		font-size: rem-calc(15);
+		line-height: 1.5;
+	}
+	ul.children {
+		margin-left: rem-calc(64);
+	}
+	li {
+		list-style: none;
+		margin-bottom: 2em;
+	
+		.comment-author img {
+			float: left;
+			margin: 0 1em 0 0;
+		}
+		.author-meta {
+			display: inline-block;
+			cite.fn {
+				font-style: normal;
+				font-weight: 600;
+				margin-right: rem-calc(8);
+			}
+			time a {
+				color: #ccc;
+				font-size: rem-calc(14);
+				margin-right: rem-calc(8);
+			}
+			.comment-edit-link {
+				color: #bbb;
+				font-size: rem-calc(14);
+			}
+		}
+		section.comment {
+			margin-left: rem-calc(64);
+			margin-bottom: rem-calc(32);
+			a.comment-reply-link {
+				font-size: rem-calc(14);
+				font-weight: 600;
+				color: #bbb;
+				&:hover, &:focus {
+					color: $body-font-color;
+				}
+			}
+		}
+	}
+}
+
+
+
+// Start the sidebar
+#sidebar {
+	margin-top: rem-calc(20);
+}
+
+// Start the footer
+footer.full-width {
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+	padding-top: rem-calc(48);
+	p {
+		font-size: rem-calc(14);
+	}
+	a {
+		color: #666;
+		font-size: rem-calc(15);
+		&:hover, &:focus {
+			color: $body-font-color;
+		}
+	}
+	.love-reverie {
+		border-top: 1px solid #ccc;
+		padding-top: rem-calc(24);
+	}
+}
+
+// Fix admin bar issue, by bybe on Github
+.admin-bar > .fixed {
+	margin-top: rem-calc(32);
+}
+
+.f-topbar-fixed > .container {
+	margin-top: rem-calc(32);
+}
+
+// MY RESETS
+
+ul{
+	margin:0;
+	list-style-type: none;
+	margin-bottom: 0;
+}
+
+
+// CUSTOM TOP-BAR SEARCH
+#search-icon{
+	list-style: none;
+	width:30px;
+	height: 30px;
+	display: block;
+	margin-top: rem-calc(10);
+	margin-left: rem-calc(10);
+	background:url('../img/search-icon.png')no-repeat center;
+}
+.top-bar-search{
+	form{
+		input[type="text"]{
+			height: 50px;
+			font-size: rem-calc(20);
+			&::-webkit-input-placeholder {
+				   color: $orange;
+				   text-transform: uppercase;
+				   font-style:italic;
+				   letter-spacing:0.75px;
+				}
+				
+				&:-moz-placeholder { /* Firefox 18- */
+				   color: $orange;  
+				   text-transform: uppercase;
+				   font-style:italic;
+				   letter-spacing:0.75px;
+				}
+				
+				&::-moz-placeholder {  /* Firefox 19+ */
+				   color: $orange; 
+				   text-transform: uppercase;
+				   font-style:italic; 
+				   letter-spacing:0.75px;
+				}
+				
+				&:-ms-input-placeholder {  
+				   color: $orange;  
+				   text-transform: uppercase;
+				   font-style:italic;
+				   letter-spacing:0.75px;
+				}
+		}//input[type="text"]
+	}//form
+}////.top-bar-search
+
+
+@media #{$small-up} {
+
+	/* TYPOGRAPHY */
+	
+	h2{
+		// text-transform: uppercase; lw
+		// text-align: center;
+		// font-style: italic;
+		// font-size:rem-calc(18);
+		// border-bottom:1px solid $lt-blue;
+		// margin-bottom: $column-gutter/3;
+		// a{
+		// 	color:$orange;
+		text-align: center;
+		font-size:rem-calc(24);
+		border-bottom:1px solid $lt-blue;
+		margin-bottom: $column-gutter/3;
+    font-family: "alternate-gothic-no-2-d",sans-serif;
+    line-height: 1.15;
+    // font-family: "franklin-gothic-urw-comp",sans-serif;
+		a{
+			color:$orange;
+		}
+
+		&:after{
+			content:"";
+			display:block;
+			border-top:1px solid $lt-blue;
+			height:3px;
+		}
+	}
+	
+	h3{
+		text-transform: uppercase;
+		font-style: italic;
+		color:$lt-orange;
+	}
+	
+	h4{
+		text-transform: uppercase;
+		font-family: "alternate-gothic-no-2-d",sans-serif;
+		font-size:rem-calc(24);
+		margin-top:7px;
+		color:$lt-blue;
+		border-bottom:1px solid $lt-blue;
+		
+		&:after{
+			content:"";
+			display:block;
+			border-top:1px solid $lt-blue;
+			height:3px;
+		}
+	}
+	
+	h5{
+		color:$drk-blue;
+		text-transform: uppercase;
+		font-family: "alternate-gothic-no-2-d",sans-serif;
+		font-size:rem-calc(36);
+		border-top:1px solid $lt-blue;
+		border-bottom:1px solid $lt-blue;
+		line-height: 0.9;
+		text-align: center;
+		padding: 7px 0 0 0;	
+		letter-spacing:0.8px;
+		margin-bottom:30px;	
+	}
+	
+	p{
+		font-size:1.05rem;
+		// font-size:0.95rem; lw
+	}
+	
+	/* GLOBAL */
+		
+	.social-media{
+		display:none;
+	}
+	
+	.top-bar.expanded ul.title-area{		
+		background:$lt-blue;
+
+		.toggle-topbar a span{
+			box-shadow:none;
+		}
+	}
+	
+	/* HEADER */
+
+	header{
+		margin-bottom:rem-calc(20);
+		
+		&:after{
+			content:"";
+			display:block;
+			border-bottom:1px solid $lt-blue;
+			height:1px;
+		}
+	}
+
+	#header-search{
+		margin-top:rem-calc(18);
+		padding-left: 0;
+		form input[type="text"] {
+				&::-webkit-input-placeholder {
+				   color: $orange;
+				   text-transform: uppercase;
+				   font-style:italic;
+				   letter-spacing:0.75px;
+				}
+				
+				&:-moz-placeholder { /* Firefox 18- */
+				   color: $orange;  
+				   text-transform: uppercase;
+				   font-style:italic;
+				   letter-spacing:0.75px;
+				}
+				
+				&::-moz-placeholder {  /* Firefox 19+ */
+				   color: $orange; 
+				   text-transform: uppercase;
+				   font-style:italic; 
+				   letter-spacing:0.75px;
+				}
+				
+				&:-ms-input-placeholder {  
+				   color: $orange;  
+				   text-transform: uppercase;
+				   font-style:italic;
+				   letter-spacing:0.75px;
+				}
+			}
+	}//end #header-search
+	
+	.top-bar{
+	
+		ul.title-area{
+		
+			background:$lt-blue;
+		
+			li.name h1{
+				
+				padding:4px 0 0 0;
+				
+				a{
+				text-indent:-9999px;
+				background:url('../img/mobile-logo.png');
+				width:128px;
+				height:40px;
+				background-size:cover;
+				margin:0 auto;
+				}
+			}
+		}
+		
+		.toggle-topbar a span{
+			box-shadow:none;
+		}
+		
+		ul.top-nav{
+			li{
+				text-transform: uppercase;
+				a{
+					font-family: "alternate-gothic-no-2-d",sans-serif;
+					font-size:rem-calc(18);
+				}
+				
+				&:nth-of-type(6),&:nth-of-type(7){
+					display:none;
+				}
+			}
+		}
+	}
+	
+	#tagline{
+		text-align: center;
+		margin-bottom:rem-calc(20);
+		font-family: 'Great Vibes', cursive;
+		color:$lt-blue;
+		position: relative;
+		
+		quote{
+			background:$white;
+			position:relative;
+			z-index: 10;
+			font-size:rem-calc(26);
+			// font-size:rem-calc(24); lw
+		}		
+	}
+	
+	/* ORBIT SLIDER */
+	
+	.slider{
+		padding-left:0;
+		padding-right:0;
+	}
+	
+	.orbit-container{
+		padding-bottom:$column-gutter;
+		.orbit-slides-container > * .orbit-caption{
+			position:static;
+			background-color:$drk-blue;
+			color:$white;
+			a{
+				color:$lt-orange;
+				text-decoration: underline;
+				font-style: italic;
+			}
+			span.image-credit{
+				display:block;
+				margin-top:15px;
+				color:#FFF;
+			}
+		}
+		.orbit-bullets{
+			display:none;
+		}
+		.orbit-timer{
+			display: none;
+		}
+		.orbit-prev, .orbit-next{
+			display:none;
+		}
+	}
+	
+	/* SIDEBAR */
+	
+	aside{
+		.widget{
+			text-align: center;
+			margin-bottom:$column-gutter;
+			
+			a{
+			color:$grey;
+			font-style:italic;
+			}
+			
+			li.cat-item{
+				padding:6px 0;
+				list-style:none;
+			}
+			
+			form input[type="text"] {
+				&::-webkit-input-placeholder {
+				   color: $orange;
+				   text-transform: uppercase;
+				   font-style:italic;
+				   letter-spacing:0.75px;
+				}
+				
+				&:-moz-placeholder { /* Firefox 18- */
+				   color: $orange;  
+				   text-transform: uppercase;
+				   font-style:italic;
+				   letter-spacing:0.75px;
+				}
+				
+				&::-moz-placeholder {  /* Firefox 19+ */
+				   color: $orange; 
+				   text-transform: uppercase;
+				   font-style:italic; 
+				   letter-spacing:0.75px;
+				}
+				
+				&:-ms-input-placeholder {  
+				   color: $orange;  
+				   text-transform: uppercase;
+				   font-style:italic;
+				   letter-spacing:0.75px;
+				}
+			}
+			
+			// .tagcloud{
+			// 	@include column-count(3);
+			// 	text-align: center;
+			// 	a{
+			// 		font-size: rem-calc(12) !important;
+			// 		display:block;
+			// 		padding:5px 0;
+			// 	}
+			// }
+		}
+	}
+	
+	/* POSTS */
+	
+	article.excerpt{
+		margin-bottom: rem-calc(40);
+	}
+	
+	.entry-content{
+		figure{
+			img{
+				width:100%;
+			}
+		}
+
+		h3{
+			font-size: 14px;
+			color:$grey;
+			border-bottom: 1px solid $grey;
+		}
+	}
+	
+	span.image-credit{
+		font-style:italic;
+		font-size:12px;
+		letter-spacing:0.4px;
+		color:$drk-blue;
+		padding:10px 0 0 0;
+	}
+		
+	.entry-meta{
+		text-align:center;
+		padding:10px 0;
+		margin:0 0 15px 0;
+		border-top:1px solid $lt-blue;
+		border-bottom:1px solid $lt-blue;
+		
+		span{
+			color:$drk-blue;
+			font-style: oblique;
+			margin:0 10px;
+			&.updated{white-space:nowrap;}
+			&.divider{
+				color:$orange;
+			}
+		}
+	}
+	
+	.more-stuff{
+		text-align:right;
+		// float:right;
+		margin-left:20px;
+		padding:7px 0;
+		a.more-link{
+			color:$orange;
+			text-decoration: underline;
+			font-style: italic;
+		}
+	}
+	
+	.ssba{
+		text-align: right;
+	}
+	
+    /*--------------------------------  
+	
+	SUB-PAGES
+	
+	---------------------------------*/
+	
+	.sub-content{
+		margin-bottom:$column-gutter/2;
+		h3{
+				font-size:rem-calc(18);
+			}
+	}
+	
+	.sub-sidebar{
+	
+		img{
+			display:block;
+			margin:0 auto 3px auto;
+		}
+		
+		.sub-sidebar-header{
+			text-align: center;
+			border-top:1px solid $lt-blue;
+			border-bottom:1px solid $lt-blue;
+			margin:0 0 $column-gutter/3 0;
+			
+			h6.sub-page{
+			color:$lt-orange;
+			text-transform: uppercase;
+			font-style: italic;
+			line-height: 1;
+			padding:$column-gutter/3;
+			background:none;
+			font-family: $body-font-family;
+			
+				span{
+					@include border-radius(50%);
+					width:45px;
+					height:45px;
+					display:block;
+					margin:0 auto -10px auto;
+					background: rgba($ltr-blue,0.6);
+					color:$white;
+					font-size: rem-calc(36);	
+					line-height:1.25;
+					font-style: normal;
+					
+					i{
+						font-size:rem-calc(21);
+					}
+				}
+				
+			}
+			
+			&:after{
+				content:"";
+				display: block;
+				border-top:1px solid $lt-blue;
+				height:3px;
+			}
+		}
+	
+		ul{
+			li{
+				text-align:center;
+				margin:$column-gutter/3 0;
+				font-size:rem-calc(14);
+				span{
+					display:block;
+					text-transform: uppercase;
+				}
+				i {
+					display:block;
+					text-align:center;
+					> p{
+					display:block;
+					color:$lt-blue;
+					text-align: center;
+					}
+				}
+			}
+		}
+			
+		p{
+			text-align: left;
+		}
+		
+		a{
+			color:$lt-blue;
+			text-align: right;
+			display:block;
+			text-decoration: underline;
+			font-style: italic;
+			margin:0 0 $column-gutter 0;
+		}
+	
+	}
+	
+	h2.page-title{
+		border-bottom:none;
+		text-align: left;
+		color:$drk-blue;
+		font-size:rem-calc(24);
+		line-height:1;
+		margin-top: 0;
+		
+		&:after{
+			display:none;
+		}
+	}
+	
+	ul.staggered-list{
+		li{
+			padding-bottom: $column-gutter/2;
+			margin-bottom: $column-gutter/2;
+			border-bottom:1px solid rgba($grey, 0.25);
+			figure{
+				margin:0 0 $column-gutter/3 0;
+				width:100%;
+				img{
+					width:100%;
+					border:6px solid $white;
+					outline:1px solid rgba($grey, 0.25);
+				}
+			}
+			p{
+				text-align: left;
+					em{
+						text-align:left;
+						display:block;
+						margin:$column-gutter/3 0 0 0;
+						color:$drk-blue;
+						font-size: rem-calc(18px);
+					}
+
+			}
+			&:last-of-type{
+				border-bottom:none;
+				margin-bottom:0;
+			}
+		}
+	}
+	
+	/* WE WANT TO GO TO */
+	
+	li.we_want_to_go_link{
+		a{
+			position:relative;
+			
+			img{width:100%};
+			
+			.destination_title{
+				background:rgba($lt-blue,0.8);
+				width:100%;
+				padding:10px;
+				margin-top:-47px;
+				z-index:100;
+				position:relative;
+				p{
+					margin-bottom:0;
+					color:$white;
+					text-transform: lowercase;
+					font-style: italic;
+					letter-spacing:1px;
+					font-size:rem-calc(18);
+				}
+			}
+		}
+	}
+	
+	/* CONTACT */
+	.destinations-contact{
+		border:1px solid $lt-blue;
+		margin-bottom: rem-calc(20);
+		padding:10px 10px 5px 10px;
+
+		h3{
+			font-size: 16px;
+			color:#808285;
+			text-align: center;
+			text-transform: uppercase;
+			font-style: italic;
+			line-height:1.25;
+			border-bottom: none;
+			a{text-transform: lowercase;}
+		}
+	}//.weddings-contact
+
+	.gform_wrapper{
+		border:1px solid $lt-blue;
+		.gform_heading{
+			border-bottom: 1px solid $lt-blue;
+			text-align: center;
+			text-transform: uppercase;
+			font-style: italic;
+			line-height:1.25;
+		}
+		.gform_heading, .gform_body, .gform_footer{
+			padding:$column-gutter/3;
+			label{
+				font-style: italic;
+			}
+		}
+		.gform_footer{
+			padding:0 0 $column-gutter/3 0;
+			input.button.gform_button{
+				padding:10px 45px;
+				text-transform: uppercase;
+				font-style: italic;
+				letter-spacing:1px;
+				background:$lt-orange;
+				margin:0 auto;
+				display: block;
+			}
+			
+		}
+	}
+	.required-text{ font-size:12px;}
+	#gforms_confirmation_message{
+		text-align: center;
+		font-size: 2rem;
+		color:$orange;
+		padding:30px 0;
+	}
+	
+	/* FOOTER */
+	
+	footer{
+		margin-top: $column-gutter;
+		border-top:1px solid $lt-blue;
+		text-align: center;
+		padding:0 15px;
+		
+		> div{
+			
+			div{
+				padding:15px 0;
+				&:nth-of-type(1){
+					border-bottom:1px solid $lt-blue;
+					
+					img{
+						display:block;
+						margin:0 auto 15px auto;
+						width:50%;
+						max-width:200px;
+					}
+					
+					q{
+						font-style: italic;
+						color:$lt-blue;
+					}
+				}
+				
+				&:nth-of-type(2){
+					border-bottom:1px solid $lt-blue;
+					
+					ul{
+						.menu-item{		
+						text-transform: uppercase;
+						font-style: italic;
+							&:nth-of-type(3){
+								display:none;
+							}
+							a{
+								color:$lt-blue;
+								font-size: 0.85rem;
+							}
+						}
+					}
+				}
+				&:nth-of-type(3){
+					ul{
+						li{
+							a{
+								color:$grey;
+								font-style: italic;
+								i{
+									margin:0 10px 0 0;
+									color:$ltr-blue;
+								}
+							}
+						}
+						&.inline-list{
+						display:table;
+						margin:15px auto 0 auto;
+							li{
+								&:first-of-type{
+									margin-left:0;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+@media #{$medium-up} {
+
+.entry-content p, .sub-content p, .staggered-content p{
+	font-size:1.05rem;
+	// font-size:0.95rem; lw
+}
+
+/* HEADER */
+
+	.social-media{
+		display:block;
+		margin-top:rem-calc(20);
+		padding-right:rem-calc(10);
+	}
+	
+	.wrapper{
+		border-top:1px solid $lt-blue;
+	}
+
+	header{
+		margin-bottom: rem-calc(40);
+		nav.top-bar{
+			
+			background:none;
+			height:auto;
+			position:relative;
+				
+			ul.title-area{
+				position:absolute;
+				top:-30px;
+				left:50%;
+				width:180px;
+				height:108px;
+				background:url('../img/logo.png');
+				background-repeat:none;
+				background-size: cover;
+				margin:0 0 0 -90px;
+				z-index:1000;
+				
+				li.name h1 a{
+					background:none;
+					height:100px;
+				}
+
+			}
+			.top-bar-section{
+				ul.top-nav{
+					width:100%;
+					display:table;
+					margin:2px auto;
+					background: $white;
+					border-top:1px solid $lt-blue;
+					border-bottom:1px solid $lt-blue;
+					
+					li{
+						&:not(.divider){
+							display:inline-block;
+							text-align:center;
+							width:20%;
+							
+							a{
+								color:$drk-blue;
+								&:hover{
+									color:$lt-orange;
+								}
+							}
+							
+						}
+						
+						&.divider{
+							display:none;
+						}
+						
+						&.active a{
+							color:$orange;
+						}
+					}
+					
+				}
+			}
+		}
+	}
+	
+	#tagline{
+		position: relative;
+		margin-bottom:rem-calc(40);
+		
+		quote{
+			background:$white;
+			position:relative;
+			z-index: 10;
+			padding:0 5px;
+			font-size:rem-calc(30px);
+		}
+		
+		span{
+			display:block;
+			position:relative;
+			width:100%;
+			margin-bottom:-12px;
+			border-bottom:1px solid $lt-blue;
+			z-index:1;
+		}
+		
+		&:before, &:after{
+			position: relative;
+			z-index: 10;
+			content:"";
+			display:block;
+			float:left;
+			background:url('../img/planelft.png');
+			width:15px;
+			height:14px;
+			margin-top:-7px;
+		}
+		
+		&:after{
+			float:right;
+			background:url('../img/planert.png');
+		}
+		
+	}
+	
+	/* ORBIT SLIDER */
+	
+	.orbit-container{
+		overflow:hidden;
+		padding-bottom:0;
+		margin-bottom:$column-gutter/2;
+		.orbit-slides-container{
+			overflow:hidden;
+			 max-height:400px;
+			 li img{
+			 	width:100%;
+			 	margin-top:-10%;
+			 	}	
+		}
+		.orbit-slides-container > * .orbit-caption{
+			background-color:rgba(0,0,0,0.55);
+			position:absolute;
+			right:0;
+			width:34%;
+			height:100%;
+			border-bottom:none;
+			color:$white;
+			
+			> div{
+				margin:10% 0 0 0;
+				display:table;
+				vertical-align: middle;			
+				a{
+					color:$white;
+				}
+			}
+		}
+		.orbit-bullets{
+			display:block;
+			
+			li{
+			border:1px solid $orange;
+			background:$white;
+			
+			&.active{
+				background:$orange;
+			}
+			
+			}
+		}
+		.orbit-prev, .orbit-next{
+			display:block;
+		}
+	}
+	
+	/*--------------------------------  
+	
+	SUB-PAGES
+	
+	 ---------------------------------*/
+
+	.sub-content{
+		@include column-count(2);
+		@include column-gap($column-gutter/2);
+		
+		h3#before{
+			@include column-break-before(always);
+		}
+		
+		p{
+			text-align: left;
+		}
+		
+	}
+	 
+	h2.page-title{
+		font-size:rem-calc(30);
+	} 
+
+	
+	/* CONTACT */
+	
+	#gform_wrapper_1{
+		.gform_body{
+			@include column-count(2);
+			@include column-gap($column-gutter);
+			@include column-rule(1px solid rgba($grey,0.5));
+			li#field_1_11{
+				@include column-break-after(always);
+			}
+		}
+	}
+		
+	/* FOOTER */
+	
+	footer{
+		padding:0 15px;
+		
+		> div{
+			
+			div{
+				padding:0;
+				margin-top:25px;
+				margin-bottom:25px;
+				&:nth-of-type(1){
+					border-bottom:none;
+					border-right:1px solid rgba($grey, 0.25);
+					img{
+						display:block;
+						margin:0 auto 15px auto;
+						max-width:140px;
+					}
+					
+					q{
+						font-style: italic;
+						color:$lt-blue;
+					}
+				}
+				
+				&:nth-of-type(2){
+					border-bottom:none;
+					border-right:1px solid rgba($grey, 0.25);
+					ul{
+						padding-top: 10px;
+					}
+				}
+				&:nth-of-type(3){
+					ul{
+						margin-top: 15px;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+@media #{$large-up} {
+
+	/* TYPOGRAPHY */
+
+	h6{
+		text-align:center;
+		color:$white;
+		background: url('../img/suitcase.png') no-repeat center center;
+		font-family: 'Great Vibes', cursive;
+		font-size:rem-calc(24);
+		height:53px;
+		padding:15px 0 0 0;
+		margin:-23px auto 0 auto;
+		
+		&:after{
+			content:"";
+			display:block;
+			border-top:1px solid $lt-blue;
+			margin-top:-4px;
+		}
+	}
+	
+	ul.staggered-list{
+		li{
+			> div{
+				display:table;
+				figure{
+					float:left;
+					width:48%;
+					margin:0 4% 4% 0;
+				}
+				div.staggered-content{
+					width:48%;
+					float:right;
+				}
+			}
+			&:nth-of-type(even){
+				div{
+					figure{
+						float:right;
+						margin:0 0 4% 4%;
+					}
+					p{
+						float:left;
+					}
+				}
+			}
+		}
+	}	
+
+	
+	/* HEADER/GLOBAL */
+	
+	.social-media{
+		margin-top:rem-calc(20);
+	}
+
+	.wrapper{
+		margin-bottom:rem-calc(50);
+		border:1px solid $lt-blue;	
+	}
+
+	header{
+		margin-bottom: rem-calc(60);
+		nav.top-bar{				
+			ul.title-area{
+				position:absolute;
+				top:-34px;
+				left:50%;
+				width:225px;
+				height:135px;
+				margin:0 0 0 -112px;
+				
+				li.name h1 a{
+					height:135px;
+				}
+			}
+		}
+		.top-bar-section{
+			ul.top-nav{
+				li{
+					a{
+						font-size:rem-calc(24px);
+					}
+					&:not(.has-form) a:not(.button){
+						line-height: 64px;
+					}
+				}
+			}
+		}
+	}
+	
+	/* ORBIT SLIDER */
+	
+	.slider{
+		padding-left:$column-gutter/2;
+		padding-right:$column-gutter/2;
+	}
+	
+	/* PROMO SIDEBAR */
+	
+	.promo{
+		border:1px solid $lt-blue;
+		margin:2px 0 40px 0;
+		
+		&:before{
+			content:"";
+			display: block;
+			border-bottom:1px solid $lt-blue;
+			height:3px;
+		}
+		
+		.promo-content{
+			padding:15px;
+			border-top:1px solid $lt-blue;
+			margin-top:-12px;	
+			
+			p{
+				text-align: justify;
+				font-size: 0.75rem;
+			}
+			
+			#about-susan, #feeling-lost{
+				border-bottom:1px solid rgba($grey, 0.25);
+				padding:$column-gutter/3 0;
+				margin-bottom:$column-gutter/3;
+			}
+			
+			#about-susan{
+				font-size: rem-calc(12);
+				img{
+					float:left;
+					margin:0 10px 10px 0;
+				}
+				b,i,span{
+					display:block;
+					margin-bottom:rem-calc(5);
+					line-height: 1.25;
+				}
+			}
+			
+			#feeling-lost{
+				background: url('../img/lost-plane.png');
+				background-size:contain;
+				background-repeat:no-repeat;
+				text-align: center;
+				line-height: 1.25;
+			}
+			
+			a{
+				display:block;
+				text-align:right;
+				text-decoration: underline;
+				font-style: italic;
+				color:$grey;
+			}	
+		}
+	}
+	
+	/*--------------------------------  
+	
+	SUB-PAGES
+	
+	---------------------------------*/
+	
+	/* WE WANT TO GO TO... */
+	
+	
+	.sub-sidebar{
+
+		.sub-sidebar-header{
+			
+			h6.sub-page{	
+				height:auto;
+				margin:0;
+				padding:$column-gutter/3 $column-gutter;
+				font-size:rem-calc(18);
+				&:after{
+					display: none;
+				}
+			}
+		}
+	}	
+	
+}
