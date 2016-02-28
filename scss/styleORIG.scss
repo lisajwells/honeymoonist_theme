@@ -342,25 +342,16 @@ ul{
 	/* TYPOGRAPHY */
 	
 	h2{
-		// text-transform: uppercase; lw
-		// text-align: center;
-		// font-style: italic;
-		// font-size:rem-calc(18);
-		// border-bottom:1px solid $lt-blue;
-		// margin-bottom: $column-gutter/3;
-		// a{
-		// 	color:$orange;
+		text-transform: uppercase;
 		text-align: center;
-		font-size:rem-calc(24);
+		font-style: italic;
+		font-size:rem-calc(18);
 		border-bottom:1px solid $lt-blue;
 		margin-bottom: $column-gutter/3;
-    font-family: "alternate-gothic-no-2-d",sans-serif;
-    line-height: 1.15;
-    // font-family: "franklin-gothic-urw-comp",sans-serif;
 		a{
 			color:$orange;
 		}
-
+		
 		&:after{
 			content:"";
 			display:block;
@@ -406,8 +397,7 @@ ul{
 	}
 	
 	p{
-		font-size:1.05rem;
-		// font-size:0.95rem; lw
+		font-size:0.95rem;
 	}
 	
 	/* GLOBAL */
@@ -522,8 +512,7 @@ ul{
 			background:$white;
 			position:relative;
 			z-index: 10;
-			font-size:rem-calc(26);
-			// font-size:rem-calc(24); lw
+			font-size:rem-calc(24);
 		}		
 	}
 	
@@ -669,7 +658,7 @@ ul{
 	
 	.more-stuff{
 		text-align:right;
-		// float:right;
+		float:right;
 		margin-left:20px;
 		padding:7px 0;
 		a.more-link{
@@ -985,8 +974,7 @@ ul{
 @media #{$medium-up} {
 
 .entry-content p, .sub-content p, .staggered-content p{
-	font-size:1.05rem;
-	// font-size:0.95rem; lw
+	font-size:0.95rem;
 }
 
 /* HEADER */
