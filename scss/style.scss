@@ -634,6 +634,15 @@ ul{
 			}
 		}
 
+		figure{
+			.vertical-img{
+				max-width:260px;
+				// max-height: 343px;
+				display: block;
+				margin: 0 auto;
+			}
+		}
+
 		h3{
 			font-size: 14px;
 			color:$grey;
