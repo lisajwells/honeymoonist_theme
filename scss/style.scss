@@ -621,6 +621,13 @@ ul{
 			img{
 				width:100%;
 			}
+			.vertical-img{ //lw
+				max-width:260px;
+				// max-height: 343px;
+				display: block;
+				margin: 0 auto;
+			}
+
 		}
 
 		h3{
@@ -630,13 +637,20 @@ ul{
 		}
 	}
 	
-	span.image-credit{
+	span.image-credit{ //lw
+		color:$drk-blue;
+		display:block;
 		font-style:italic;
 		font-size:12px;
 		letter-spacing:0.4px;
-		color:$drk-blue;
-		padding:10px 0 0 0;
+		padding:5px 0 5px 0;
 	}
+	.vertical-img ~ span.image-credit { //lw
+		max-width:260px;
+		// max-height: 343px;
+		margin: 0 auto;
+	}
+
 		
 	.entry-meta{
 		text-align:center;
