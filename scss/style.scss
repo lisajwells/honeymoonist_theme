@@ -1,4 +1,4 @@
-/* Welcome and glad you are using Reverie.
+/* Welcome and glad you are using Reverie.522
  * This is the main stylesheet loaded by default.
  * Edit the file and have fun.
  * http://themefortress.com/reverie */
@@ -929,11 +929,14 @@ ul{
 						max-width:200px;
 					}
 					
-					p{
-					// q{
+					q{
 						font-style: italic;
 						color:$lt-blue;
 					}
+					q::before, q::after{
+						content: "";
+					}
+
 				}
 				
 				&:nth-of-type(2){
@@ -1212,11 +1215,11 @@ ul{
 						max-width:140px;
 					}
 					
-					p{
-					// q{
+					q{
 						font-style: italic;
 						color:$lt-blue;
 					}
+
 				}
 				
 				&:nth-of-type(2){

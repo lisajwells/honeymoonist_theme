@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="small-18 medium-7 columns">
 			<img src="<?php bloginfo ('template_url'); ?>/img/logo.png" />
-			<p><?php the_field('footer-tagline', 'option'); ?></p>
+			<q><?php the_field('footer-tagline', 'option'); ?></q>
 		</div>
 		
 		<div class="small-18 medium-4 columns">
