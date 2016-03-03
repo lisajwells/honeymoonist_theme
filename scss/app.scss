@@ -1,6 +1,7 @@
 @import "settings";
 @import "foundation";
 
+
 header {
   @include grid-row;
   
@@ -8,6 +9,7 @@ header {
   padding-bottom: em-calc(10px);
 
 }
+
 
 .main-content {
   @include grid-row;
