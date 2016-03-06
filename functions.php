@@ -108,7 +108,7 @@ foreach ($sidebars as $sidebar) {
     ));
 }
 
-// Limits Excerpt Wordcount and Adds Read More Btn
+// Limits Excerpt Wordcount and Adds [ellipse and] Read More Btn
 function wp_new_excerpt($text){
     if($text == ''){
         $text = get_the_content('');
@@ -121,11 +121,15 @@ function wp_new_excerpt($text){
         $words = explode(' ', $text, $excerpt_length + 1);
         if (count($words) > $excerpt_length) {
             array_pop($words);
-            array_push($words, '<div class="more-stuff"><a class="more-link" href="'. get_permalink() .'">Read More</a></div>');
+            array_push($words, '&nbsp;&hellip;<div class="more-stuff"><a class="more-link" href="'. get_permalink() .'">Read More</a></div>');
             $text = implode(' ', $words);
         }
-    }
     return $text;
+// Allows for custom excerpt with [ellipse and] Read More Btn 
+    } else {
+        $text .= '&nbsp;&hellip;<div class="more-stuff"><a class="more-link" href="'. get_permalink() .'">Read More</a></div>';
+        return $text;
+    }
 }
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'wp_new_excerpt');
